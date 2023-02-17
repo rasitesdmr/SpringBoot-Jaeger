@@ -1,0 +1,93 @@
+version: '3.8'
+services:
+  user-service:
+    image: rasitesdmr1486/user-service:1.0
+    container_name: user-service-app
+    restart: always
+    ports:
+      - "2000:2000"
+    environment:
+      - SPRING_APPLICATION_NAME
+      - SPRINGDOC_SWAGGER_UI_PATH
+      - SPRING_API_DOCS_PATH
+      - SPRING_JPA_HIBERNATE_DDL_AUTO
+      - SPRING_JPA_SHOW_SQL
+      - SPRING_JPA_OPEN_IN_VIEW
+      - OPENTRACING_JAEGER_ENABLE
+      - OPENTRACING_JAEGER_SERVICE_NAME
+      - OPENTRACING_JAEGER_UDP_SENDER_HOST
+      - OPENTRACING_JAEGER_UDP_SENDER_PORT
+      - OPENTRACING_JAEGER_LOG_SPANS
+      - SPRING_DATASOURCE_URL
+      - SPRING_DATASOURCE_DRIVERCLASSNAME
+      - SPRING_DATASOURCE_USERNAME
+      - SPRING_DATASOURCE_PASSWORD
+      - SPRING_JPA_DATABASE_PLATFORM
+      - SPRING_H2_CONSOLE_ENABLED
+      - RESILIENCE4J_SLIDING_WINDOWS_TYPE
+      - RESILIENCE4J_SLIDING_WINDOWS_SIZE
+      - RESILIENCE4J_MINIMUM_NUMBER_OF_CALLS
+      - RESILIENCE4J_PERMITTED_NUMBER_OF_CALLS_IN_HALFOPENSTATE
+      - RESILIENCE4J_WAITDURATIONINOPENSTATE
+      - RESILIENCE4J_FAILURERATETHRESHOLD
+      - RESILIENCE4J_REGISTERHEALTHINDICATOR
+      - RESILIENCE4J_EVENTCONSUMERBUFFERSIZE
+      - RESILIENCE4J_AUTOMITCTRANSITIONFROM
+      - CIRCUITBREAKERS_ENABLED
+      - EXPOSURE_INCLUDE
+      - HEALTH_SHOW_DETAILS
+    depends_on:
+      - jaeger
+    networks:
+      - my-network
+
+  department-service:
+    image: rasitesdmr1486/department-service:1.0
+    restart: always
+    ports:
+      - "2001:2001"
+    environment:
+      - SPRINGDOC_SWAGGER_UI_PATH
+      - SPRING_API_DOCS_PATH
+      - SPRING_JPA_HIBERNATE_DDL_AUTO
+      - SPRING_JPA_SHOW_SQL
+      - SPRING_JPA_OPEN_IN_VIEW
+      - OPENTRACING_JAEGER_ENABLE
+      - OPENTRACING_JAEGER_SERVICE_NAME
+      - OPENTRACING_JAEGER_UDP_SENDER_HOST
+      - OPENTRACING_JAEGER_UDP_SENDER_PORT
+      - OPENTRACING_JAEGER_LOG_SPANS
+      - SPRING_DATASOURCE_URL
+      - SPRING_DATASOURCE_DRIVERCLASSNAME
+      - SPRING_DATASOURCE_USERNAME
+      - SPRING_DATASOURCE_PASSWORD
+      - SPRING_JPA_DATABASE_PLATFORM
+      - SPRING_H2_CONSOLE_ENABLED
+      - SPRING_APPLICATION_NAME
+    depends_on:
+      - jaeger
+    networks:
+      - my-network
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "6831:6831/udp"
+      - "16686:16686"
+    networks:
+      - my-network
+
+  hotrod:
+    image: jaegertracing/example-hotrod:latest
+    ports:
+      - "8080:8080"
+    command: [ "all" ]
+    environment:
+      - JAEGER_AGENT_HOST=jaeger
+      - JAEGER_AGENT_PORT=6831
+    networks:
+      - my-network
+    depends_on:
+      - jaeger
+networks:
+  my-network:
+    driver: bridge
