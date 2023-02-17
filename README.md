@@ -1,6 +1,6 @@
 # 🎯 Jaeger Nedir ?
 
-<img src="kapak2">
+<img src="https://github.com/rasitesdmr/SpringBoot-Jaeger/blob/master/images/kapak2.png">
 
 * Jaeger, dağıtık sistemlerde kullanılan performans izleme ve sorun giderme aracıdır. Jaeger, OpenTracing
   standartlarına uygun olarak çalışan bir çözümdür ve Microservices mimarisinde yer alan uygulamaların, uygulama
@@ -38,7 +38,7 @@
 * Span'lar, bir isteğin izlenebilirliğini arttırır ve sorunların tespitini hızlandırır. Ayrıca, performans
   sorunlarını belirlemede ve iyileştirmede de kullanılır.
 
-<img src="jaeger4">
+<img src="https://github.com/rasitesdmr/SpringBoot-Jaeger/blob/master/images/jaeger4.png">
 
 * Bu, bir span için benzersiz bir tanımlayıcı olan ve "Trace ID", "Span ID" ve "Parent Span ID" olarak adlandırılan üç
   bölümden oluşan bir dizgidir.
@@ -54,7 +54,7 @@
 
 # 🎯 Monolithic ve Microservice Mimarisi ?
 
-<img src="jaeger2">
+<img src="https://github.com/rasitesdmr/SpringBoot-Jaeger/blob/master/images/jaeger2.png">
 
 # 🎯 Distributed Tracing Nedir ?
 
@@ -78,7 +78,7 @@
 
 ## 📌 Gerçek Zamanlı Kullanım Örneği
 
-<img src="jaeger1">
+<img src="https://github.com/rasitesdmr/SpringBoot-Jaeger/blob/master/images/jaeger1.png">
 
 * Örneğin, bir ödeme işlemi birden fazla nedenden dolayı başarısız olmuş olabilir; yanlış kullanıcı girişi, ödeme ağ
   geçidindeki sorun veya arka uçtaki bir veritabanı bileşeni arızası kadar basit olabilir.
@@ -90,7 +90,7 @@
 
 # 🎯 Jaeger Basic Kavramlar ?
 
-<img src="jaeger3">
+<img src="https://github.com/rasitesdmr/SpringBoot-Jaeger/blob/master/images/jaeger3.png">
 
 * Span: Bir isteğin farklı aşamalarını temsil eden bir kayıttır. Bir istek, bir dizi span ile izlenir ve her bir span,
   isteğin belli bir aşamasını veya işlemini temsil eder. Her bir span, span adı, başlangıç ve bitiş zamanları, durumu,
@@ -232,8 +232,8 @@ docker-compose up --build -d
 docker-compose down -v
 ```
 
-<img src="docker1">
-<img src="jaeger5">
-<img src="jaeger6">
-<img src="jaeger7">
-<img src="jaeger8">
+<img src="https://github.com/rasitesdmr/SpringBoot-Jaeger/blob/master/images/docker1.png">
+<img src="https://github.com/rasitesdmr/SpringBoot-Jaeger/blob/master/images/jaeger5.png">
+<img src="https://github.com/rasitesdmr/SpringBoot-Jaeger/blob/master/images/jaeger6.png">
+<img src="https://github.com/rasitesdmr/SpringBoot-Jaeger/blob/master/images/jaeger7.png">
+<img src="https://github.com/rasitesdmr/SpringBoot-Jaeger/blob/master/images/jaeger8.png">
