@@ -231,6 +231,11 @@ docker-compose up --build -d
 ```yaml
 docker-compose down -v
 ```
+## user-service swagger
+* http://localhost:2000/swagger-ui.html
+
+## department-service swagger
+* http://localhost:2001/swagger-ui.html
 
 <img src="https://github.com/rasitesdmr/SpringBoot-Jaeger/blob/master/images/docker1.png">
 <img src="https://github.com/rasitesdmr/SpringBoot-Jaeger/blob/master/images/jaeger5.png">
